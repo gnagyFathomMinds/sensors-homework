@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/style/colours';
+
+html, body {
+    background: @main-background-color;
+    color: @main-text-color;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+    display: block;
+    float: none;
+}
+
+.application-main {
+    background: @main-background-color;
+    color: @main-text-color;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 90vw;
+    padding: 5vh 5vw;
+    position: relative;
+
+    h1 {
+        font-size: 24px;
+        margin: 0 0 20px;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin: 0 0 20px;
+        padding: 0;
+    }
+
+    .widget-holder {
+        margin: 5vh 3% 0 0;
+        width: 30%;
+        height: auto;
+        float: left;
+    }
+}
+
+label {
+    color: @main-text-color;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 2vw 0 0;
+}
+
+.input {
+    background: @main-background-color;
+    border: 1px solid;
+    border-color: @border-color;
+    border-radius: 10px;
+    color: @main-text-color;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 10px 0 0;
+    outline: 0;
+    padding: 0 10px;
+    text-align: left;
+    width: 200px;
+}
+
+button {
+    background: @interaction-background-color;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 11px;
+    color: @secondary-text-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    border: 0;
+    border-radius: 10px;
+    line-height: 30px;
+    height: 30px;
+    outline: 0;
+    cursor: pointer;
+
+    &.secondary {
+        background-color: @secondary-button-color;
+        color: @main-text-color;
+        margin: 0 0 0 10px;
+    }
+}
+
+.modal-background {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: @black-aplha-50;
+    z-index: 12;
+    position: fixed;
+}
+
+.create-chart-modal {
+    position: fixed;
+    width: calc(50vw - 4vw);
+    height: auto;
+    top: 20vh;
+    left: calc(50% - 25vw);
+    background: @main-background-color;
+    padding: 2vh 2vw;
+    border-radius: 20px;
+    z-index: 123;
+    text-align: center;
+
+    .input-row {
+        height: auto;
+        margin: 1.5vh 0;
+    }
+}
+

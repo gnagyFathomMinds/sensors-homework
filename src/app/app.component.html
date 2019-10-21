@@ -1,0 +1,51 @@
+<div class="application-main">
+  <h1>{{ title }}</h1>
+  <div>
+    <label for="dateRange">Set date range</label>
+    <input
+      id="dateRange"
+      autocomplete="off"
+      type="text"
+      ngxDaterangepickerMd
+      [(ngModel)]="selectedDateRange"
+      class="form-control input"
+      placeholder="click here to set date range"
+    />
+    <button *ngIf="chartWidgets.length != '3'" class="button" (click)="createWidget()">Add new chart</button>
+    <button *ngIf="chartWidgets.length > 0" class="button secondary" (click)="reset()">Reset</button>
+  </div>
+  <div *ngIf="createWidgetIsVisible">
+    <div class="modal-background"></div>
+    <div class="create-chart-modal">
+      <div class="input-row">
+        <label for="dataTyoe">Select data tyoe:</label>
+        <select id="dataType" [(ngModel)]="newDataLineDataType" class="input">
+          <option>--- select ---</option>
+          <option value="temperature">temperature</option>
+          <option value="humidity">humidity</option>
+          <option value="light">light</option>
+        </select>
+      </div>
+      <div class="input-row">
+        <label for="chartType">Select chart type:</label>
+        <select id="chartType" [(ngModel)]="newDataChartType" class="input">
+          <option value="line">line</option>
+          <option value="bar">bar</option>
+          <option value="scatter">scatter</option>
+        </select>
+      </div>
+      <div class="input-row">
+        <button (click)="saveChartWidget()">Create chart</button>
+      </div>
+    </div>
+  </div>
+  <chart-widget
+    *ngFor="let chartWidget of chartWidgets; let i = index"
+    [params]="chartWidget"
+  ></chart-widget>
+  <br class="clear" />
+  <div *ngIf="chartWidgets.length > 1">
+    <h2>Combined chart</h2>
+    <div [chart]="chart"></div>
+  </div>
+</div>
